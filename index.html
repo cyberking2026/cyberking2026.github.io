@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Cyber Shield Lab | Ethical Hacking Learning</title>
+
+  <meta name="description"
+        content="Cyber Shield Lab is an educational website for learning ethical hacking, cyber security and safe security testing.">
+
+  <meta name="keywords"
+        content="ethical hacking, cyber security, hacking lab, security learning">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #050b10;
+      color: #e8fff3;
+    }
+
+    header {
+      background: #08151d;
+      padding: 25px;
+      text-align: center;
+      border-bottom: 1px solid #00ff88;
+    }
+
+    header h1 {
+      color: #00ff88;
+      margin: 0;
+      font-size: 35px;
+    }
+
+    header p {
+      color: #9bb5aa;
+    }
+
+    nav {
+      text-align: center;
+      padding: 15px;
+      background: #0b1820;
+    }
+
+    nav a {
+      color: #00ff88;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      color: #00ff88;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #b9c9c1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 25px;
+      background: #00ff88;
+      color: #001108;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #0b151c;
+      border: 1px solid #17352a;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      color: #00ff88;
+    }
+
+    .checker {
+      margin-top: 40px;
+      background: #0b151c;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 10px 0;
+      background: #050b10;
+      color: white;
+      border: 1px solid #00ff88;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #00ff88;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    .warning {
+      margin-top: 30px;
+      padding: 20px;
+      border-left: 4px solid #00ff88;
+      background: #0b151c;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 25px;
+      text-align: center;
+      background: #08151d;
+      color: #82978d;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛡️ Cyber Shield Lab</h1>
+  <p>Learn Cyber Security • Ethical Hacking • Safe Testing</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#learn">Learn</a>
+  <a href="#tools">Tools</a>
+  <a href="#about">About</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Welcome to Cyber Shield Lab</h2>
+
+  <p>
+    Learn the basics of cyber security and ethical hacking
+    in a safe environment.
+  </p>
+
+  <a class="btn" href="#learn">Start Learning</a>
+</section>
+
+<div class="container">
+
+  <section id="learn">
+    <h2>📚 Learning Modules</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌐 Networking</h3>
+        <p>
+          Learn IP addresses, DNS, HTTP, ports and basic networking.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🔐 Password Security</h3>
+        <p>
+          Learn how strong passwords and authentication protect accounts.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ Web Security</h3>
+        <p>
+          Learn common web security concepts using safe practice labs.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💻 Ethical Hacking</h3>
+        <p>
+          Learn security testing concepts with permission and
+          responsible use.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="checker" id="tools">
+
+    <h2>🔑 Password Strength Demo</h2>
+
+    <p>Enter a test password:</p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter test password">
+
+    <button onclick="checkPassword()">
+      Check Strength
+    </button>
+
+    <div id="result"></div>
+
+  </section>
+
+  <section class="warning" id="about">
+
+    <h2>⚠️ Safety Rule</h2>
+
+    <p>
+      Use security testing only on your own systems or systems
+      where you have explicit permission. Never attack real
+      websites, accounts or devices without authorization.
+    </p>
+
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Cyber Shield Lab | Educational Cyber Security Website
+</footer>
+
+<script>
+function checkPassword() {
+
+  const password =
+    document.getElementById("password").value;
+
+  const result =
+    document.getElementById("result");
+
+  let score = 0;
+
+  if (password.length >= 8) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[a-z]/.test(password)) score++;
+  if (/[0-9]/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  if (password.length === 0) {
+    result.textContent = "Please enter a test password.";
+  }
+  else if (score <= 2) {
+    result.textContent = "❌ Weak password";
+  }
+  else if (score <= 4) {
+    result.textContent = "🟡 Medium password";
+  }
+  else {
+    result.textContent = "🟢 Strong password";
+  }
+}
+</script>
+
+</body>
+</html>
